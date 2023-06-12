@@ -1,4 +1,5 @@
 ﻿using Project1Demo.Core.Entities;
+using Project1Demo.Core;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -44,9 +45,9 @@ namespace Project1Demo.Core.DataAccess.EntityFramework
 
         public List<TEntity> GetList(Expression<Func<TEntity, bool>> filter = null)
         {
-            using (TContext context = new TContext())
+            using (TContext context = new TContext()) 
             {
-                return filter == null?
+                return filter == null ?
                     context.Set<TEntity>().ToList() :
                     context.Set<TEntity>().Where(filter).ToList();
             }

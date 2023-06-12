@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace Project1Demo.DataAccess.Concrete.EntityFramework.Mapping
 {
-    public class ProductMap:EntityTypeConfiguration<Product>
+    public class ProductMap : EntityTypeConfiguration<Product>
     {
         public ProductMap()
         {
             ToTable(@"Products", @"dbo");
             HasKey(x => x.ProductId);
 
-            Property(x=>x.ProductId).HasColumnName("ProductID");
+            Property(x => x.ProductId).HasColumnName("ProductID");
             Property(x => x.ProductName).HasColumnName("ProductName");
             Property(x => x.CategoryId).HasColumnName("CategoryID");
             Property(x => x.UnitPrice).HasColumnName("UnitPrice");

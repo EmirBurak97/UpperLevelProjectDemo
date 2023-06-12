@@ -35,7 +35,9 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Project1Demo.WcfService", "
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project1Demo.MvcWebUI", "Project1Demo.MvcWebUI\Project1Demo.MvcWebUI.csproj", "{26311680-510C-4468-9336-47EE3524E45A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project1Demo.MvcWebUI", "Project1Demo.MvcWebUI\Project1Demo.MvcWebUI.csproj", "{26311680-510C-4468-9336-47EE3524E45A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project1Demo.DataAccess.Tests", "Project1Demo.DataAccess.Tests\Project1Demo.DataAccess.Tests.csproj", "{DBBB10FA-376F-40F8-A61D-26AF9C886690}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,10 @@ Global
 		{26311680-510C-4468-9336-47EE3524E45A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26311680-510C-4468-9336-47EE3524E45A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26311680-510C-4468-9336-47EE3524E45A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBBB10FA-376F-40F8-A61D-26AF9C886690}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBBB10FA-376F-40F8-A61D-26AF9C886690}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBBB10FA-376F-40F8-A61D-26AF9C886690}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBBB10FA-376F-40F8-A61D-26AF9C886690}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

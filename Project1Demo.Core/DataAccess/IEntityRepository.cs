@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Project1Demo.Core.DataAccess
 {
-    public interface IEntityRepository<T> where T : class,IEntity, new()
+    public interface IEntityRepository<T> where T : class, IEntity, new()
     {
-        List<T> GetList(Expression<Func<T,bool>> filter=null);
+        List<T> GetList(Expression<Func<T, bool>> filter = null);
 
         T Get(Expression<Func<T, bool>> filter);
 

@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Project1Demo.DataAccess.Concrete.EntityFramework.Mapping;
 
 
 namespace Project1Demo.DataAccess.Concrete.EntityFramework
@@ -14,6 +15,7 @@ namespace Project1Demo.DataAccess.Concrete.EntityFramework
     {
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         public ExampleContext()
         {
@@ -25,6 +27,8 @@ namespace Project1Demo.DataAccess.Concrete.EntityFramework
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new ProductMap());
+            modelBuilder.Configurations.Add(new CategoryMap());
+
         }
     }
 }
