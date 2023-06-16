@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Project1Demo.Business.Aspects.PostSharp;
+using Project1Demo.Core.CrossCuttingConcerns.Validation.FluentValidation;
 
 namespace Project1Demo.Business.Concrete.Managers
 {
@@ -24,12 +26,13 @@ namespace Project1Demo.Business.Concrete.Managers
         {
             return _productDal.GetList();
         }
-        [FluentValidate(typeof(ProductValidator))]
+
+        [FluentValidationAspect(typeof(ProductValidator))]
         public Product Update(Product product)
         {
             return _productDal.Update(product);
         }
-        [FluentValidate(typeof(ProductValidator))]
+        [FluentValidationAspect(typeof(ProductValidator))]
         public Product Add(Product product)
         {
             return _productDal.Add(product);
