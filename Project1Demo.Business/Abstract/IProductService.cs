@@ -1,4 +1,5 @@
-﻿using Project1Demo.Entities.Concrete;
+﻿using PostSharp.Aspects.Serialization;
+using Project1Demo.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,7 @@ namespace Project1Demo.Business.Abstract
 
         Product Add(Product product);
         Product Update(Product product);
+
+        void TransactionalOperation(Product product1, Product product2);
     }
 }

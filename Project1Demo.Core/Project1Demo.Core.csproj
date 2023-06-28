@@ -11,6 +11,7 @@
     <PackageReference Include="FluentValidation" Version="11.5.2" />
     <PackageReference Include="NHibernate" Version="5.4.2" />
     <PackageReference Include="PostSharp" Version="2023.0.5" />
+    <PackageReference Include="System.Runtime.Caching" Version="7.0.0" />
   </ItemGroup>
 
 </Project>

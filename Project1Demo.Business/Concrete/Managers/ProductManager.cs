@@ -9,6 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Project1Demo.Business.Aspects.PostSharp;
 using Project1Demo.Core.CrossCuttingConcerns.Validation.FluentValidation;
+using Project1Demo.Business.Aspects.PostSharp.ValidationAspects;
+using Project1Demo.Business.Aspects.PostSharp.TransactionAspects;
+using Project1Demo.Business.Aspects.PostSharp.CacheAspects;
+using System.CodeDom;
+using Project1Demo.Core.CrossCuttingConcerns.Caching;
+using Project1Demo.Core.CrossCuttingConcerns.Caching.Microsoft;
 
 namespace Project1Demo.Business.Concrete.Managers
 {
@@ -21,7 +27,7 @@ namespace Project1Demo.Business.Concrete.Managers
             _productDal = productDal;
         }
 
-
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<Product> GetAll()
         {
             return _productDal.GetList();
@@ -33,6 +39,7 @@ namespace Project1Demo.Business.Concrete.Managers
             return _productDal.Update(product);
         }
         [FluentValidationAspect(typeof(ProductValidator))]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public Product Add(Product product)
         {
             return _productDal.Add(product);
@@ -41,6 +48,12 @@ namespace Project1Demo.Business.Concrete.Managers
         public Product GetById(int id)
         {
             return _productDal.Get(p => p.ProductId == id);
+        }
+        [TransactionScopeAspect]
+        public void TransactionalOperation(Product product1, Product product2)
+        {
+            _productDal.Add(product1);
+            _productDal.Update(product2);
         }
     }
 }

@@ -7,15 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project1Demo.Business.Aspects.PostSharp
+namespace Project1Demo.Business.Aspects.PostSharp.ValidationAspects
 {
     [Serializable]
-    public class FluentValidationAspect:OnMethodBoundaryAspect
+    public class FluentValidationAspect : OnMethodBoundaryAspect
     {
         Type _validatorType;
-        public FluentValidationAspect(Type validatorType) 
+        public FluentValidationAspect(Type validatorType)
         {
-            _validatorType= validatorType;
+            _validatorType = validatorType;
         }
 
         public override void OnEntry(MethodExecutionArgs args)
@@ -24,7 +24,7 @@ namespace Project1Demo.Business.Aspects.PostSharp
             var entityType = _validatorType.BaseType.GetGenericArguments()[0];
             var entities = args.Arguments.Where(t => t.GetType() == entityType);
 
-            foreach ( var entity in entities) 
+            foreach (var entity in entities)
             {
                 ValidatorTool.FluentValidate(validator, entity);
             }
