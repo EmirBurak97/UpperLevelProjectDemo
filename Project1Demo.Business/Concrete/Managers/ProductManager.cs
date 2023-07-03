@@ -15,6 +15,8 @@ using Project1Demo.Business.Aspects.PostSharp.CacheAspects;
 using System.CodeDom;
 using Project1Demo.Core.CrossCuttingConcerns.Caching;
 using Project1Demo.Core.CrossCuttingConcerns.Caching.Microsoft;
+using Project1Demo.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
+using Project1Demo.Business.Aspects.PostSharp.LogAspects;
 
 namespace Project1Demo.Business.Concrete.Managers
 {
@@ -28,6 +30,8 @@ namespace Project1Demo.Business.Concrete.Managers
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
+        [LogAspect(typeof(DatabaseLogger))]
+        [LogAspect(typeof(FileLogger))]
         public List<Product> GetAll()
         {
             return _productDal.GetList();
